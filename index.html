@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Emissão de Nota Fiscal</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Nota Fiscal</h1>
+
+  <form id="notaForm">
+    <label for="cliente">Nome do Cliente:</label><br>
+    <input type="text" id="cliente" required><br><br>
+
+    <label for="item">Produto ou Serviço:</label><br>
+    <input type="text" id="item" required><br><br>
+
+    <label for="valor">Valor (R$):</label><br>
+    <input type="number" id="valor" required><br><br>
+
+    <button type="submit">Emitir Nota</button>
+    <button type="button" id="limparForm" style="background-color: #dc3545;">Limpar Formulário</button>
+  </form>
+
+  <!-- Botão de Histórico -->
+  <button id="verHistorico" style="margin-top: 15px;">Ver Histórico de Notas</button>
+  <button id="exportarCSV" style="margin-left: 10px;">Exportar para CSV</button>
+
+
+  <!-- Mensagem de resposta -->
+  <p id="resposta" style="margin-top: 15px;"></p>
+
+  <!-- Recibo -->
+  <div id="recibo" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 6px; background-color: #f9f9f9;">
+    <h2>Recibo da Nota</h2>
+    <p><strong>Cliente:</strong> <span id="reciboCliente"></span></p>
+    <p><strong>Produto ou Serviço:</strong> <span id="reciboItem"></span></p>
+    <p><strong>Valor:</strong> R$<span id="reciboValor"></span></p>
+    <p><strong>Data:</strong> <span id="reciboData"></span></p>
+    
+    <!-- Botões do recibo -->
+    <button onclick="window.print()">🖨️ Imprimir Recibo</button>
+    <button id="novaNota" style="display: none;">Nova Nota</button>
+  </div>
+
+  <!-- Histórico de notas -->
+  <div id="historico" style="margin-top: 20px;"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
