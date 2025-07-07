@@ -1,0 +1,25 @@
+# 🧾 Sistema de Emissão de Notas Fiscais
+
+Este projeto permite a emissão de notas fiscais simples com simulação de validação pela SEFAZ, histórico, exportação para CSV, impressão de recibo e mais.
+
+## 🚀 Funcionalidades
+
+- ✅ Validação simulada da SEFAZ (valor máximo permitido)
+- ✅ Exibição de recibo de nota fiscal
+- ✅ Impressão do recibo em PDF
+- ✅ Botão "Nova Nota" para reinício rápido
+- ✅ Histórico de notas emitidas
+- ✅ Exportação do histórico para `.csv`
+- ✅ Botão para limpar o formulário
+
+## 🛠️ Tecnologias Utilizadas
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js com Express
+- **Armazenamento**: Arquivo local `notas.json`
+
+## ▶️ Como Rodar o Projeto
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/Roberto-Streppel/Meu-projeto-Notas-fiscais.git
