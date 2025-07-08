@@ -2,49 +2,56 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Emissão de Nota Fiscal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emissão de NF-e Modelo 55</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Nota Fiscal</h1>
+  <h1>NF-e Modelo 55</h1>
+  <form id="nfeForm">
+    <fieldset>
+      <legend><strong>Emitente</strong></legend>
+      <input type="text" id="emitenteNome" placeholder="Razão Social" required>
+      <input type="text" id="emitenteCNPJ" placeholder="CNPJ" required>
+      <input type="text" id="emitenteIE" placeholder="Inscrição Estadual">
+      <input type="text" id="emitenteEndereco" placeholder="Endereço">
+    </fieldset>
 
-  <form id="notaForm">
-    <label for="cliente">Nome do Cliente:</label><br>
-    <input type="text" id="cliente" required><br><br>
+    <fieldset>
+      <legend><strong>Destinatário</strong></legend>
+      <input type="text" id="destinatarioNome" placeholder="Nome/Razão Social" required>
+      <input type="text" id="destinatarioCPF_CNPJ" placeholder="CPF ou CNPJ" required>
+      <input type="text" id="destinatarioIE" placeholder="Inscrição Estadual">
+      <input type="text" id="destinatarioEndereco" placeholder="Endereço">
+    </fieldset>
 
-    <label for="item">Produto ou Serviço:</label><br>
-    <input type="text" id="item" required><br><br>
+    <fieldset>
+      <legend><strong>Produto</strong></legend>
+      <input type="text" id="produtoDescricao" placeholder="Descrição" required>
+      <input type="text" id="produtoCodigo" placeholder="Código do Produto" required>
+      <input type="text" id="produtoNCM" placeholder="NCM" required>
+      <input type="text" id="produtoCFOP" placeholder="CFOP" required>
+      <input type="number" step="0.01" id="produtoQtd" placeholder="Quantidade" required>
+      <input type="number" step="0.01" id="produtoValorUnit" placeholder="Valor Unitário" required>
+    </fieldset>
 
-    <label for="valor">Valor (R$):</label><br>
-    <input type="number" id="valor" required><br><br>
+    <fieldset>
+      <legend><strong>Pagamento</strong></legend>
+      <select id="formaPagamento" required>
+        <option value="">Forma de Pagamento</option>
+        <option value="01">Dinheiro</option>
+        <option value="03">Cartão de Crédito</option>
+        <option value="04">Cartão de Débito</option>
+        <option value="05">Crédito Loja</option>
+        <option value="10">Vale Alimentação</option>
+        <option value="99">Outros</option>
+      </select>
+    </fieldset>
 
-    <button type="submit">Emitir Nota</button>
-    <button type="button" id="limparForm" style="background-color: #dc3545;">Limpar Formulário</button>
+    <button type="submit">Emitir NF-e</button>
   </form>
 
-  <!-- Botão de Histórico -->
-  <button id="verHistorico" style="margin-top: 15px;">Ver Histórico de Notas</button>
-  <button id="exportarCSV" style="margin-left: 10px;">Exportar para CSV</button>
-
-
-  <!-- Mensagem de resposta -->
-  <p id="resposta" style="margin-top: 15px;"></p>
-
-  <!-- Recibo -->
-  <div id="recibo" style="display: none; margin-top: 20px; padding: 15px; border: 1px solid #ccc; border-radius: 6px; background-color: #f9f9f9;">
-    <h2>Recibo da Nota</h2>
-    <p><strong>Cliente:</strong> <span id="reciboCliente"></span></p>
-    <p><strong>Produto ou Serviço:</strong> <span id="reciboItem"></span></p>
-    <p><strong>Valor:</strong> R$<span id="reciboValor"></span></p>
-    <p><strong>Data:</strong> <span id="reciboData"></span></p>
-    
-    <!-- Botões do recibo -->
-    <button onclick="window.print()">🖨️ Imprimir Recibo</button>
-    <button id="novaNota" style="display: none;">Nova Nota</button>
-  </div>
-
-  <!-- Histórico de notas -->
-  <div id="historico" style="margin-top: 20px;"></div>
+  <div id="resposta"></div>
 
   <script src="script.js"></script>
 </body>
